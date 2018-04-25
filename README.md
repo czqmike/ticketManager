@@ -25,3 +25,12 @@ A simple system simulate the real ticket-book system.Based on JavaFX-MySQL-JDBC.
   在查询了自己的已定车票后可以选择退票
 
 运行截图：
+
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/SignIn.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/SignUp.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/PrimaryWindow.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/SelectDialog1.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/SelectDialog2.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/MyTicketDialog1.png)
+![Image](https://github.com/czqmike/ticketManager/blob/master/screenshots/MyTicketDialog2.png)
+
