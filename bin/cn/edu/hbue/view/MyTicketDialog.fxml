@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="422.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.hbue.view.MyTicketDialogController">
+   <children>
+      <SplitPane dividerPositions="0.19776119402985073" layoutX="120.0" layoutY="81.0" prefHeight="418.0" prefWidth="487.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="refundButton" disable="true" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleRefund" prefHeight="40.0" prefWidth="102.0" text="退票">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="myTicketTable" layoutX="-107.0" layoutY="-109.0" prefHeight="416.0" prefWidth="336.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="trainNumberColumn" prefWidth="85.0" text="车次" />
+                        <TableColumn fx:id="ticketIDColumn" prefWidth="85.0" text="车票号" />
+                      <TableColumn fx:id="startStationColumn" prefWidth="70.0" text="始发站" />
+                        <TableColumn fx:id="endStationColumn" prefWidth="70.0" text="终点站" />
+                        <TableColumn fx:id="startTimeColumn" prefWidth="168.0" text="发车时间" />
+                        <TableColumn fx:id="timeCostColumn" prefWidth="98.0" text="耗时" />
+                        <TableColumn fx:id="priceColumn" prefWidth="56.0" text="票价" />
+                        <TableColumn fx:id="seatNumberColumn" prefWidth="63.0" text="座位号" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
