@@ -26,11 +26,21 @@ public class SelectDialogController {
 	@FXML
 	private TextField endStationField;
 	@FXML
+	private TextField trainNumberField;
+	@FXML
+	private TextField ticketIdField;
+	
+	@FXML
 	private DatePicker startDate;
+	
 	@FXML
 	private Button selectButton;
 	@FXML
 	private Button purchaseButton;
+	@FXML
+	private Button selectByTrainNumberButton;
+	@FXML
+	private Button selectByTicketIdButton;
 	
 	@FXML
 	private TableView<Train> trainTable;
@@ -48,7 +58,6 @@ public class SelectDialogController {
 	private TableColumn<Train, Double> priceColumn;
 	
 	private ObservableList<Train> data = null;
-	
 	private Train selectedTrain;
 	
 	/*
@@ -72,7 +81,9 @@ public class SelectDialogController {
 						});
 	}
 	
-	
+	/*
+	 * 车站查询的查询按钮之句柄
+	 */
 	@FXML
 	private void handleSelectButton() {
 		String start_station = startStationField.getText();
@@ -99,6 +110,7 @@ public class SelectDialogController {
 			return;
 		}
 	}
+	
 	/*
 	 * 如果这个车次还有余票，则更改ticket_count表并且插入一条记录到order表中,
 	 * 然后置ticket表中这张表的bought为true
@@ -123,6 +135,59 @@ public class SelectDialogController {
 			TicketDao.purchaseTicket(order.getTicket_id());
 			
 			AlertUtil.showAlert(AlertType.INFORMATION, "购买成功！");
+		}
+	}
+	
+	/*
+	 * 车次查询的查询按钮之句柄
+	 */
+	@FXML
+	private void handleSelectByTrainNumber() {
+		String train_number = trainNumberField.getText();
+		if (train_number.equals("")) {
+			AlertUtil.showAlert(AlertType.WARNING, "车次号不能为空！");
+			return ;
+		}
+		
+		data = TrainDao.SelectByTrainNumber(train_number);
+		
+		trainTable.setItems(data);
+		
+		if (data.isEmpty()) {
+			purchaseButton.setDisable(true);//重置购买按钮为不可击
+			AlertUtil.showAlert(AlertType.INFORMATION, "很抱歉，没有此躺列车");
+			return;
+		}
+	}
+	
+	/*
+	 * 车票查询的查询按钮之句柄
+	 */
+	@FXML
+	private void handleSelectByTicketId() {
+		String ticket_id = ticketIdField.getText();
+		if (ticket_id.equals("")) {
+			AlertUtil.showAlert(AlertType.WARNING, "车次号不能为空！");
+			return ;
+		}
+		
+		//将String的ticket_id 转换为 int
+		int id = 0;
+		try {
+			id = Integer.parseInt(ticket_id);
+		} catch (Exception e) {
+			AlertUtil.showAlert(AlertType.WARNING, "车次号不合法！");
+			return ;
+		}
+		
+		data = TrainDao.SelectByTicketId(id);
+		
+		trainTable.setItems(data);
+		
+		if (data.isEmpty()) {
+			purchaseButton.setDisable(true);//重置购买按钮为不可击
+			AlertUtil.showAlert(AlertType.INFORMATION, "很抱歉，没有此躺列车");
+			return;
 		}
 	}
 }

@@ -39,6 +39,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (1,'admin','2018-04-24 23:06:15','北京'),(4,'czqmike','2018-04-25 23:27:10','武昌');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +93,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,'K599','A-1',152.5,0),(2,'K599','A-2',152.5,0),(3,'K599','A-3',152.5,0),(4,'K968','A-1',153.5,0),(5,'K968','A-2',153.5,0),(6,'K968','A-3',153.5,0),(7,'K600','A-1',152.5,0),(8,'K600','A-2',152.5,0),(9,'K600','A-3',152.5,0),(10,'Z36','A-1',1058,0);
+INSERT INTO `ticket` VALUES (1,'K599','A-1',152.5,1),(2,'K599','A-2',152.5,0),(3,'K599','A-3',152.5,0),(4,'K968','A-1',153.5,1),(5,'K968','A-2',153.5,0),(6,'K968','A-3',153.5,0),(7,'K600','A-1',152.5,0),(8,'K600','A-2',152.5,0),(9,'K600','A-3',152.5,0),(10,'Z36','A-1',1058,0);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +119,7 @@ CREATE TABLE `ticket_count` (
 
 LOCK TABLES `ticket_count` WRITE;
 /*!40000 ALTER TABLE `ticket_count` DISABLE KEYS */;
-INSERT INTO `ticket_count` VALUES ('K599',3,0,3),('K600',3,0,3),('K968',3,0,3),('Z36',1,0,1);
+INSERT INTO `ticket_count` VALUES ('K599',3,0,2),('K600',3,0,3),('K968',3,0,2),('Z36',1,0,1);
 /*!40000 ALTER TABLE `ticket_count` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +175,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('admin','123','陈','admin','null','null'),('czqmike','123','MikeChen','user','1871','4208'),('test','test','测试','user','111','1111');
+INSERT INTO `user` VALUES ('admin','123','陈','admin','null','null'),('czqmike','123','MikeChen','user','1871','4208'),('signup','123','注册','user','1800','4100'),('test','test','测试','user','111','1111');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-24 21:53:25
+-- Dump completed on 2018-04-27  9:42:10
